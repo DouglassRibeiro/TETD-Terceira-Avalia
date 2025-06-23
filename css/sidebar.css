@@ -71,10 +71,8 @@
     opacity: 1;
 }
 
+
 @media (max-width: 768px) {
-    .sidebar_color{
-        transform: translateX(-100%);
-    }
     
     .sidebar_color.active{
         transform: translateX(0);

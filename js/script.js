@@ -1,33 +1,93 @@
-// js/script.js
+// Terceira Avaliação/js/script.js
 
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.querySelector('.hamburger-menu');
-    const sidebar = document.querySelector('.sidebar');
     const sidebar_color = document.querySelector('.sidebar_color');
     const overlay = document.querySelector('.overlay');
-    const navLinks = document.querySelectorAll('.sidebar nav ul li a'); // Seleciona os links dentro da sidebar
+    const navLinks = document.querySelectorAll('.sidebar nav ul li a');
+    const dynamicContentArea = document.getElementById('dynamic-content-area'); // Área onde o conteúdo será injetado
+
+    // Mapeamento de hash para o caminho do arquivo HTML
+    const pageMap = {
+        '#inicio': 'pages/inicio.html',
+        '#sobre': 'pages/sobre.html',
+        '#projetos': 'pages/projetos.html',
+        '#contato': 'pages/contato.html',
+        '': 'pages/inicio.html' // Para a URL raiz (sem hash), carrega a página de início
+    };
+
+    // Função para carregar o conteúdo de uma página
+    async function loadPage(hash) {
+        const path = pageMap[hash || '']; // Usa o hash ou string vazia para o padrão
+        if (!path) {
+            console.error('Página não encontrada para o hash:', hash);
+            dynamicContentArea.innerHTML = '<section><h2>Página Não Encontrada</h2><p>Desculpe, o conteúdo solicitado não pôde ser carregado.</p></section>';
+            return;
+        }
+
+        try {
+            // Opcional: Adicionar um spinner de carregamento ou mensagem
+            dynamicContentArea.innerHTML = '<p style="text-align: center; padding: 50px;">Carregando...</p>';
+
+            const response = await fetch(path);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const htmlContent = await response.text();
+            dynamicContentArea.innerHTML = htmlContent;
+
+            // Ativar o link da sidebar após o carregamento do conteúdo
+            setActiveLink(hash);
+
+            // Rolar para o topo da área de conteúdo dinâmico após carregar
+            dynamicContentArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        } catch (error) {
+            console.error('Erro ao carregar a página:', error);
+            dynamicContentArea.innerHTML = '<section><h2>Erro de Carregamento</h2><p>Não foi possível carregar o conteúdo. Por favor, tente novamente mais tarde.</p></section>';
+        }
+    }
+
+    // Função para definir o link ativo na sidebar
+    function setActiveLink(currentHash) {
+        navLinks.forEach(link => {
+            link.classList.remove('active-link');
+            // Remove o foco do elemento para evitar "sticky hover" em alguns mobiles
+            if (link === document.activeElement) {
+                link.blur();
+            }
+        });
+
+        const targetLink = document.querySelector(`.sidebar nav ul li a[href="${currentHash}"]`);
+        if (targetLink) {
+            targetLink.classList.add('active-link');
+        } else if (!currentHash) { // Caso seja a página inicial sem hash
+            const homeLink = document.querySelector('.sidebar nav ul li a[href="#inicio"]');
+            if (homeLink) {
+                homeLink.classList.add('active-link');
+            }
+        }
+    }
 
     // Função para abrir o menu
     function openMenu() {
-        sidebar.classList.add('active');
         sidebar_color.classList.add('active');
-        hamburgerBtn.classList.add('active'); // Anima o ícone do hambúrguer
+        hamburgerBtn.classList.add('active');
         overlay.classList.add('active');
-        document.body.classList.add('menu-open'); // Impede rolagem do body
+        document.body.classList.add('menu-open');
     }
 
     // Função para fechar o menu
     function closeMenu() {
-        sidebar.classList.remove('active');
-        hamburgerBtn.classList.remove('active');
         sidebar_color.classList.remove('active');
+        hamburgerBtn.classList.remove('active');
         overlay.classList.remove('active');
         document.body.classList.remove('menu-open');
     }
 
     // Event listener para o botão de hambúrguer
     hamburgerBtn.addEventListener('click', () => {
-        if (sidebar.classList.contains('active')) {
+        if (sidebar_color.classList.contains('active')) {
             closeMenu();
         } else {
             openMenu();
@@ -39,63 +99,40 @@ document.addEventListener('DOMContentLoaded', () => {
         closeMenu();
     });
 
-    // Event listener para os links de navegação (clicar em um link fecha o menu)
+    // Event listener para os links de navegação
     navLinks.forEach(link => {
         link.addEventListener('click', (event) => {
-            // Opcional: Se você estiver usando carregamento de conteúdo dinâmico (com fetch)
-            // e quer que o menu feche ao clicar, mantenha esta linha.
-            // Se for apenas rolagem para IDs, o evento.preventDefault() pode não ser necessário
-            // ou deve ser tratado de forma diferente para a rolagem suave.
+            event.preventDefault(); // <-- MUITO IMPORTANTE: Impede a ação padrão do link!
+            const href = link.getAttribute('href');
 
-            // Se a tela for pequena (mobile), feche o menu após clicar em um link
-            if (window.innerWidth <= 768) { // Use o mesmo breakpoint do CSS
-                 closeMenu();
+            // Atualiza a URL na barra de endereços sem recarregar a página
+            // Isso permite que o botão de voltar/avançar do navegador funcione
+            history.pushState(null, '', href);
+
+            // Carrega o conteúdo da nova página
+            loadPage(href);
+
+            // Fecha o menu em mobile se estiver aberto
+            if (window.innerWidth <= 768 && sidebar_color.classList.contains('active')) {
+                closeMenu();
             }
-            // Não chame preventDefault() aqui se você quiser que os links #ID funcionem nativamente
-            // A menos que você esteja implementando o carregamento dinâmico de conteúdo como discutimos anteriormente.
         });
     });
 
-    // Opcional: Lógica para carregar conteúdo dinamicamente (se você ainda quiser isso)
-    // Seções de rolagem ou carregamento dinâmico
-    const mainContentArea = document.querySelector('main');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (event) => {
-            const targetId = link.getAttribute('href').substring(1);
-
-            // Verifica se a tela é maior que 768px (desktop)
-            if (window.innerWidth > 768) {
-                // Se for desktop, apenas rola para a seção (com comportamento suave do CSS)
-                // Não é necessário preventDefault() aqui para a rolagem normal
-            } else {
-                // Se for mobile, o JavaScript fecha o menu E depois lida com a rolagem/carregamento
-                // Se você estiver carregando conteúdo dinamicamente, você fará o fetch aqui.
-                // Por agora, vamos garantir que a rolagem suave funcione após o fechamento do menu.
-                setTimeout(() => {
-                    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
-                }, 300); // Pequeno atraso para a animação do menu fechar
-            }
-
-            // Exemplo de como você poderia integrar o carregamento dinâmico aqui
-            // if (targetId === 'sobre' || targetId === 'projetos' || targetId === 'contato') {
-            //     let contentPath = `pages/${targetId}.html`;
-            //     fetch(contentPath)
-            //         .then(response => response.text())
-            //         .then(html => {
-            //             mainContentArea.innerHTML = html;
-            //         })
-            //         .catch(error => console.error('Erro ao carregar o conteúdo:', error));
-            // } else if (targetId === 'inicio') {
-            //     // Lógica para carregar o conteúdo da página inicial novamente, se necessário
-            // }
-        });
+    // Lida com o carregamento inicial da página e quando o usuário usa o botão de voltar/avançar
+    window.addEventListener('popstate', () => {
+        // Quando o botão voltar/avançar é usado, o hash da URL muda.
+        // Carrega a página correspondente ao novo hash.
+        loadPage(window.location.hash);
     });
 
-    // Opcional: Lidar com redimensionamento da janela (para ocultar o botão em desktop se o usuário redimensionar)
+    // Lida com redimensionamento da janela
     window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && sidebar.classList.contains('active')) {
-            closeMenu(); // Fecha o menu se o usuário redimensionar para desktop
+        if (window.innerWidth > 768 && sidebar_color.classList.contains('active')) {
+            closeMenu();
         }
     });
-});
 
+    // Carrega o conteúdo inicial da página baseado na URL atual (ou 'inicio' se não houver hash)
+    loadPage(window.location.hash);
+});
