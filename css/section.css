@@ -1,0 +1,16 @@
+.section_div {
+    display: flex;
+}
+
+section {
+    width: 100vb;
+    overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    &::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    max-height: 100vh;
+    background-color: black;
+    text-align:right;
+}

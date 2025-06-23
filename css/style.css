@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+@import 'sidebar.css';
+@import 'hambuguer.css';
+@import 'footer.css';
+@import 'hamburger.css';
+@import 'hamburger.css';
+@import 'section.css';
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', 'Open Sans';
+    overflow-x: hidden;
+}
+
+body {
+    display: flex; /* Transforma o body em um container flexível */
+    background-color: #595757;
+    position: fixed;
+    /*background-color: #1E1E1E;*/
+}
+
+body .menu-open{
+    overflow: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}

@@ -1,0 +1,93 @@
+/* css/sidebar.css */
+
+.sidebar_color {
+    background-color: #222222;
+}
+
+.sidebar {
+    /*organização da barra lateral*/
+    color: #ffffff;
+    height: 100vh;
+    right: 100vh;
+    position: relative;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 1000;
+    font-size: 2vb;
+}
+
+.sidebar {
+    /*centralizando ul*/
+    justify-content: center;
+}
+
+.sidebar .logo {
+    /* reposicionar a logo*/
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 10lvb;
+}
+
+.sidebar ul {
+    /*corpo da lista*/
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.sidebar ul li {
+    /*itens da lista*/
+    margin: 10vb 5vb 10vb 5vb;
+}
+
+.sidebar ul li a {
+    display: inline-flex;
+    color: white;
+    text-decoration: none;
+    padding: 1px 10px 1px 10px;
+    opacity: .5;
+    transition: .5s ease;
+}
+
+.sidebar ul li a img {
+    padding-right: 1vh;
+    width: 2vb;
+}
+
+
+.sidebar ul li a:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .sidebar_color{
+        transform: translateX(-100%);
+    }
+    
+    .sidebar_color.active{
+        transform: translateX(0);
+    }
+
+    .sidebar {
+        transform: translateX(-100%); /* Move a sidebar para fora da tela por padrão */
+        /* display: none; também poderia ser usado, mas transform permite animação */
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Move a sidebar de volta para a tela quando ativa */
+    }
+
+    .sidebar .logo {
+    /* reposicionar a logo*/
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    width: 10lvb;
+    }
+
+}

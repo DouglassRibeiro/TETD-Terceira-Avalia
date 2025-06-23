@@ -1,0 +1,23 @@
+/* css/footer.css */
+
+footer {
+    background-color: #282c34;
+    color: white;
+    text-align: center;
+    font-size: 2vh;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 2vh 0 2vh 0;
+}
+
+/* MEDIA QUERY: Estilos para telas menores */
+@media (max-width: 768px) {
+    footer {
+        margin-left: 0; /* Remove a margem esquerda em mobile */
+        width: 100%; /* Ocupa 100% da largura em mobile */
+        position: relative; /* Volta a ser relativo ao fluxo do documento */
+        position: fixed;
+    }
+}
