@@ -3,7 +3,6 @@
 @import 'hambuguer.css';
 @import 'footer.css';
 @import 'hamburger.css';
-@import 'hamburger.css';
 @import 'section.css';
 
 * {
@@ -16,7 +15,7 @@
 body {
     display: flex; /* Transforma o body em um container flexível */
     background-color: #595757;
-    position: fixed;
+    /*position: fixed;*/
     /*background-color: #1E1E1E;*/
 }
 

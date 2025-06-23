@@ -1,9 +1,10 @@
 .section_div {
     display: flex;
+    flex: 1;
 }
 
 section {
-    width: 100vb;
+    width: 100%;
     overflow: auto;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;  /* IE and Edge */

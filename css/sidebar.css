@@ -54,9 +54,16 @@
     transition: .5s ease;
 }
 
+
 .sidebar ul li a img {
     padding-right: 1vh;
     width: 2vb;
+}
+
+.sidebar ul li a.selected {
+    background-color: rgba(97, 218, 251, 0.2); /* Cor de destaque para o item selecionado */
+    opacity: 1;
+    /* Outros estilos para o estado 'selecionado' */
 }
 
 
