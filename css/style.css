@@ -3,7 +3,11 @@
 @import 'hambuguer.css';
 @import 'footer.css';
 @import 'main.css';
-@import 'pages.css';
+
+@import 'pages/inicio.css';
+@import 'pages/sobre.css';
+@import 'pages/projetos.css';
+@import 'pages/contato.css';
 
 
 * {
