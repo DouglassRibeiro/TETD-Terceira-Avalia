@@ -91,30 +91,29 @@
 }
 
 
-
+/* MEDIA QUERY: Estilos para telas com largura máxima de 768px (mobile) */
 @media (max-width: 768px) {
+    .sidebar_color {
+        /* Oculta a sidebar movendo-a completamente para fora da tela */
+        transform: translateX(-100%);
+        box-shadow: none; /* Remove a sombra quando oculta */
+        /* OPCIONAL: Você pode definir width: 0; ou display: none; para remover o espaço,
+                     mas transform é melhor para transições. */
+        /* width: 0; */
+        /* min-width: 0; */
+    }
 
     .sidebar_color.active {
+        /* Move a sidebar de volta para a tela quando a classe 'active' é adicionada pelo JS */
         transform: translateX(0);
-    }
-
-    .sidebar {
-        transform: translateX(-100%);
-        /* Move a sidebar para fora da tela por padrão */
-        /* display: none; também poderia ser usado, mas transform permite animação */
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-        /* Move a sidebar de volta para a tela quando ativa */
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2); /* Adiciona a sombra ao mostrar */
     }
 
     .sidebar .logo {
-        /* reposicionar a logo*/
-        position: absolute;
-        top: 80px;
-        left: 20px;
-        width: 10lvb;
+        display: none; /* Oculta a logo em mobile para dar espaço */
     }
 
+    .sidebar ul li {
+        margin: 20px 0;
+    }
 }
