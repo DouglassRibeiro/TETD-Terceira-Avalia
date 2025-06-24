@@ -1,7 +1,12 @@
 
-.inicio{
-    margin-right: 60vh;
+#inicio{
     padding: 10vh 10vh ;
+}
+
+.home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .como_vai p {
@@ -35,4 +40,9 @@
 
 .frase .p2 {
     padding-top: 2vh;
+}
+
+.imagepessoal{
+    height: 60vb;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
