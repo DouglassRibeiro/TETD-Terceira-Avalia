@@ -1,5 +1,6 @@
 // Terceira Avaliação/js/script.js
 
+
 document.addEventListener('DOMContentLoaded', () => {
     const hamburgerBtn = document.querySelector('.hamburger-menu');
     const sidebar_color = document.querySelector('.sidebar_color');

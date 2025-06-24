@@ -45,6 +45,11 @@
     margin: 10vb 5vb 10vb 5vb;
 }
 
+.sidebar ul li a img {
+    padding-right: 1vb;
+    width: 2vb;
+}
+
 .sidebar ul li a {
     display: inline-flex;
     color: white;
@@ -65,28 +70,41 @@
     opacity: 1;
 }
 
+sidebar ul li a.active-link {
+    /*opacity: 1;  Mantém a opacidade em 1 */
+    background-color: #3a3f4a;
+    /* Ou uma cor de destaque diferente */
+    font-weight: bold;
+    /* Para destacar ainda mais */
+    color: #61dafb;
+    /* Uma cor de texto diferente para o ativo */
+}
+
+
 
 @media (max-width: 768px) {
-    
-    .sidebar_color.active{
+
+    .sidebar_color.active {
         transform: translateX(0);
     }
 
     .sidebar {
-        transform: translateX(-100%); /* Move a sidebar para fora da tela por padrão */
+        transform: translateX(-100%);
+        /* Move a sidebar para fora da tela por padrão */
         /* display: none; também poderia ser usado, mas transform permite animação */
     }
 
     .sidebar.active {
-        transform: translateX(0); /* Move a sidebar de volta para a tela quando ativa */
+        transform: translateX(0);
+        /* Move a sidebar de volta para a tela quando ativa */
     }
 
     .sidebar .logo {
-    /* reposicionar a logo*/
-    position: absolute;
-    top: 80px;
-    left: 20px;
-    width: 10lvb;
+        /* reposicionar a logo*/
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        width: 10lvb;
     }
 
 }
