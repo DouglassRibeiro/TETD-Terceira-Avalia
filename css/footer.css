@@ -9,6 +9,7 @@ footer {
     bottom: 0;
     width: 100%;
     padding: 2vh 0 2vh 0;
+    margin-left: 250px
 }
 
 /* MEDIA QUERY: Estilos para telas menores */

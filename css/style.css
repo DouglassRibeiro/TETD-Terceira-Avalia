@@ -2,6 +2,8 @@
 @import 'sidebar.css';
 @import 'hambuguer.css';
 @import 'footer.css';
+@import 'main.css';
+
 
 * {
     padding: 0;
