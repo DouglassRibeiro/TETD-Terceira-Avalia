@@ -1,0 +1,15 @@
+#sobre {
+    font-size: 2vh;
+}
+
+#sobre nav p {
+    color: white;
+    //margin: 220px 420px 120px 20px;
+    padding: 220px 420px 120px 20px;
+}
+
+#sobre nav img {
+    size: 2vh;
+    display: block;
+    margin: auto;
+}

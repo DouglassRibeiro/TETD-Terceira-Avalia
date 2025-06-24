@@ -1,0 +1,38 @@
+
+.inicio{
+    margin-right: 60vh;
+    padding: 10vh 10vh ;
+}
+
+.como_vai p {
+    color: white;
+    font-size: 5vh;
+}
+
+.como_vai p strong, .gosto_de p strong {
+    color: #d70000;
+}
+
+.gosto_de, .como_vai {
+    text-align: right;
+}
+
+.gosto_de p {
+    color: white;
+    font-size: 4vh;
+}
+
+.como_vai {
+    padding-bottom: 20vh;
+}
+
+.frase {
+    color: white;
+    padding-top: 20vh;
+    text-align: right;
+    font-size: 2vh;
+}
+
+.frase .p2 {
+    padding-top: 2vh;
+}

@@ -1,5 +1,23 @@
 /* Terceira Avaliação/css/main.css */
 
+body {
+    color: #fff;
+    display: flex; /* Transforma o body em um container flexível */
+    background-color: #1E1E1E;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /*position: fixed;*/
+    /*background-color: #1E1E1E;*/
+}
+
+body .menu-open{
+    overflow: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 .content {
     flex-grow: 1; /* Permite que o main ocupe todo o espaço horizontal restante */
     margin-left: 250px; /* <--- ESSENCIAL: Empurra o main para a direita da sidebar */

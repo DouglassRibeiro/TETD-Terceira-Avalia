@@ -1,0 +1,16 @@
+#contato {
+    padding: 20%;
+    font-size: 3vh;
+}
+
+#contato article a {
+    color: white;
+    text-decoration: none;
+    text-align: left;
+}
+
+#contato article img {
+    padding-right: 2vh;
+    margin-bottom: -1vh;
+    width: 5vh;
+}
