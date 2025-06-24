@@ -60,12 +60,6 @@
     width: 2vb;
 }
 
-.sidebar ul li a.selected {
-    background-color: rgba(97, 218, 251, 0.2); /* Cor de destaque para o item selecionado */
-    opacity: 1;
-    /* Outros estilos para o estado 'selecionado' */
-}
-
 
 .sidebar ul li a:hover {
     opacity: 1;
