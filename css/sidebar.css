@@ -65,7 +65,6 @@
     color: white;
     text-decoration: none;
     padding: 1px 10px 1px 10px;
-    opacity: .5;
     transition: .5s ease;
 }
 
@@ -73,21 +72,6 @@
 .sidebar ul li a img {
     padding-right: 1vh;
     width: 2vb;
-}
-
-
-.sidebar ul li a:hover {
-    opacity: 1;
-}
-
-.sidebar ul li a.active-link {
-    /*opacity: 1;  Mantém a opacidade em 1 */
-    background-color: #3a3f4a;
-    /* Ou uma cor de destaque diferente */
-    font-weight: bold;
-    /* Para destacar ainda mais */
-    color: #61dafb;
-    /* Uma cor de texto diferente para o ativo */
 }
 
 

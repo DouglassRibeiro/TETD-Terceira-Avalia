@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetLink = document.querySelector(`.sidebar nav ul li a[href="${currentHash}"]`);
         if (targetLink) {
             targetLink.classList.add('active-link');
+            targetLink.style.opacity = '1';
         } else if (!currentHash) { // Caso seja a página inicial sem hash
             const homeLink = document.querySelector('.sidebar nav ul li a[href="#inicio"]');
             if (homeLink) {
@@ -117,6 +118,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth <= 768 && sidebar_color.classList.contains('active')) {
                 closeMenu();
             }
+        });
+    });
+    // Ao <li> que estiver selecionado sua opacidade sera 1 e .5 ao contrario
+    const menuItems = document.querySelectorAll("li");
+    menuItems.forEach((item, index) => {
+        item.style.opacity = index === 0 ? "1" : "0.5";
+        item.style.transition = "opacity 0.5s";
+    });
+
+    menuItems.forEach(item => {
+        item.addEventListener("click", () => {
+            menuItems.forEach(el => {
+                el.style.opacity = ".5";
+            });
+            item.style.opacity = "1";
         });
     });
 
