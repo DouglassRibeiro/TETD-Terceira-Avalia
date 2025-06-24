@@ -13,6 +13,8 @@
 body {
     display: flex; /* Transforma o body em um container flexível */
     background-color: #1E1E1E;
+    min-height: 100vh;
+    overflow-x: hidden;
     /*position: fixed;*/
     /*background-color: #1E1E1E;*/
 }

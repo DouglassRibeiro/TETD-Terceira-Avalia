@@ -1,0 +1,49 @@
+/* Terceira Avaliação/css/main.css */
+
+main {
+    flex-grow: 1; /* Permite que o main ocupe todo o espaço horizontal restante */
+    margin-left: 250px; /* ESSENCIAL: Empurra o main para a direita da sidebar */
+    padding: 40px 20px; /* Padding interno do main */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza as seções dentro do main */
+    min-height: calc(100vh - 80px); /* Ajustado para empurrar o footer */
+    box-sizing: border-box;
+    transition: margin-left 0.3s ease-in-out;
+    overflow-x: hidden; /* NOVO: Importante para que o conteúdo do main não transborde horizontalmente e sobreponha a sidebar */
+}
+
+main section {
+    width: 100%; /* Ocupa 100% da largura do main (respeitando max-width) */
+    max-width: 900px; /* Limita a largura do conteúdo da seção */
+    padding: 60px 30px;
+    margin-bottom: 40px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+    text-align: left;
+    /* overflow-y: auto; -- Removido se você quiser que o scroll seja do body.
+                          Se você quer scroll interno da section, mantenha. */
+    /* -ms-overflow-style: none; -- Removido */
+    /* scrollbar-width: none; -- Removido */
+    /* main section::-webkit-scrollbar { display: none; } -- Removido */
+    /* O overflow-x: hidden no main já deve resolver o problema principal */
+}
+
+/* ... (estilos para h1, h2, e cores das seções) ... */
+
+
+@media (max-width: 768px) {
+    main {
+        margin-left: 0; /* Remove a margem esquerda em mobile */
+        padding: 20px 10px;
+        min-height: 100vh;
+        overflow-x: hidden; /* Manter também em mobile */
+    }
+
+    main section {
+        margin-bottom: 20px;
+        padding: 30px 15px;
+    }
+}

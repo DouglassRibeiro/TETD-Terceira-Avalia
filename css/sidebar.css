@@ -2,6 +2,16 @@
 
 .sidebar_color {
     background-color: #222222;
+    width: 250px;
+    min-width: 250px; /* Importante para que ela não encolha */
+    height: 100vh;
+    position: fixed; /* ESSENCIAL: Fixa a sidebar */
+    left: 0;
+    top: 0;
+    z-index: 1000; /* ESSENCIAL: Garante que ela esteja acima do conteúdo */
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    box-sizing: border-box;
 }
 
 .sidebar {
@@ -70,7 +80,7 @@
     opacity: 1;
 }
 
-sidebar ul li a.active-link {
+.sidebar ul li a.active-link {
     /*opacity: 1;  Mantém a opacidade em 1 */
     background-color: #3a3f4a;
     /* Ou uma cor de destaque diferente */
