@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
     // Ao <li> que estiver selecionado sua opacidade sera 1 e .5 ao contrario
     const menuItems = document.querySelectorAll("li");
     menuItems.forEach((item, index) => {
@@ -130,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuItems.forEach(item => {
         item.addEventListener("click", () => {
             menuItems.forEach(el => {
-                el.style.opacity = ".5";
+                el.style.opacity = "0.5";
             });
             item.style.opacity = "1";
         });
