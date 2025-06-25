@@ -2,15 +2,13 @@
 
 body {
     color: #fff;
-    display: flex; /* Transforma o body em um container flexível */
+    display: flex;
     background-color: #1E1E1E;
     min-height: 100vh;
     overflow-x: hidden;
-    /*position: fixed;*/
-    /*background-color: #1E1E1E;*/
 }
 
-body .menu-open{
+body .menu-open {
     overflow: hidden;
 }
 
@@ -19,26 +17,25 @@ html {
 }
 
 .content {
-    flex-grow: 1; /* Permite que o main ocupe todo o espaço horizontal restante */
-    margin-left: 250px; /* <--- ESSENCIAL: Empurra o main para a direita da sidebar */
-    padding: 40px 20px; /* Padding interno do main */
+    flex-grow: 1;
+    margin-left: 250px;
+    padding: 40px 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centraliza as seções dentro do main */
-    min-height: calc(100vh - 80px); /* Ajustado para empurrar o footer */
+    align-items: center;
+    min-height: calc(100vh - 80px);
     box-sizing: border-box;
     transition: margin-left 0.3s ease-in-out;
-    overflow-x: hidden; /* Garante que o conteúdo do main não transborde horizontalmente */
+    overflow-x: hidden;
 }
 
-/* ... (estilos de main section, h1, h2, etc.) ... */
 
 @media (max-width: 768px) {
     .content {
-        margin-left: 0; /* <--- Em mobile, remove a margem, pois a sidebar estará oculta */
+        margin-left: 0;
+        /* <--- Em mobile, remove a margem, pois a sidebar estará oculta */
         padding: 20px 10px;
         min-height: 100vh;
         overflow-x: hidden;
     }
-    /* ... (outros estilos de media query) ... */
 }

@@ -23,13 +23,12 @@ p {
 
 /* Estilos para o Grid de Projetos */
 .project-grid {
-    display: grid; /* Ativa o CSS Grid */
-    /* Cria colunas flexíveis que se ajustam automaticamente */
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px; /* Espaço entre os cards (linhas e colunas) */
-    padding: 20px; /* Padding ao redor da grade */
-    justify-content: center; /* Centraliza os itens se houver espaço extra */
-    align-items: stretch; /* Garante que os cards tenham a mesma altura */
+    gap: 30px;
+    padding: 20px;
+    justify-content: center;
+    align-items: stretch;
 }
 
 /* Estilos para cada Card de Projeto */
@@ -37,24 +36,24 @@ p {
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Garante que a imagem/vídeo não saia das bordas arredondadas */
+    overflow: hidden;
     display: flex;
-    flex-direction: column; /* Conteúdo interno empilhado verticalmente */
+    flex-direction: column;
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
-    transform: translateY(-5px); /* Leve levantamento no hover */
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .project-thumbnail {
-    width: 100%; /* Imagem/vídeo ocupa a largura total do card */
-    height: 200px; /* Altura fixa para as miniaturas */
-    object-fit: cover; /* Cobre o espaço sem distorcer (corta se necessário) */
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
     border-bottom: 1px solid #eee;
-    background-color: #f0f0f0; /* Cor de fundo para placeholders */
+    background-color: #f0f0f0;
 }
 
 .project-card h3 {
@@ -66,7 +65,7 @@ p {
 .project-card p {
     margin: 0 15px 20px 15px;
     color: #777;
-    flex-grow: 1; /* Permite que o parágrafo ocupe espaço extra, empurrando botões para baixo */
+    flex-grow: 1;
 }
 
 /* Estilos para os Botões */
@@ -75,7 +74,7 @@ p {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
-    margin: 0 10px 20px 10px; /* Margem inferior e lateral para botões */
+    margin: 0 10px 20px 10px;
     border-radius: 5px;
     text-decoration: none;
     transition: background-color 0.3s ease;
@@ -97,13 +96,13 @@ p {
 /* Media Queries para Responsividade (ajustes para telas menores) */
 @media (max-width: 768px) {
     .project-grid {
-        grid-template-columns: 1fr; /* Em telas menores, apenas 1 coluna */
+        grid-template-columns: 1fr;
         gap: 20px;
         padding: 15px;
     }
 
     .project-card {
-        margin-bottom: 0; /* Remove margem extra */
+        margin-bottom: 0;
     }
 
     #projetos h2 {
@@ -118,7 +117,7 @@ p {
 
 @media (max-width: 480px) {
     .project-thumbnail {
-        height: 180px; /* Reduz altura da miniatura em telas muito pequenas */
+        height: 180px;
     }
 
     .project-card h3 {

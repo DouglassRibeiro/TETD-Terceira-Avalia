@@ -27,10 +27,11 @@
     color: #7f7f7f;
 }
 
+/* só um novo icone */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"] {
-    width: calc(100% - 20px); /* Ajusta a largura para o padding */
+    width: calc(100% - 20px);
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -38,7 +39,7 @@
 }
 
 .submit-btn {
-    background-color: #d7000071; /* Cor verde para o botão de registro */
+    background-color: #d7000071;
     color: white;
     padding: 12px 25px;
     border: none;
@@ -55,37 +56,40 @@
 
 /* Estilos para o botão "Ir para Cadastro" na página de Contato */
 .cadastro-launcher-btn {
-    display: inline-block; /* Para centralizar com text-align: center no pai */
+    display: inline-block;
     margin-top: 40px;
     font-size: 1.3rem;
     padding: 15px 30px;
-    background-color: #007bff; /* Use uma cor de destaque */
+    background-color: #007bff;
     color: white;
     border-radius: 8px;
     text-decoration: none;
     transition: transform 0.3s ease, background-color 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .cadastro-launcher-btn:hover {
     background-color: #0056b3;
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 @media (max-width: 768px) {
     #cadastro h2 {
         font-size: 1.8rem;
     }
+
     .cadastro-launcher-btn {
         font-size: 1.1rem;
         padding: 12px 25px;
         margin-top: 30px;
     }
+
     .cadastro-form {
         padding: 20px;
     }
+
     .form-group input {
-        width: 100%; /* Ajusta para mobile */
+        width: 100%;
     }
 }

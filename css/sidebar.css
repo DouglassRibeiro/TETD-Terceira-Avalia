@@ -3,19 +3,19 @@
 .sidebar_color {
     background-color: #222222;
     width: 250px;
-    min-width: 250px; /* Importante para que ela não encolha */
+    min-width: 250px;
     height: 100vh;
-    position: fixed; /* ESSENCIAL: Fixa a sidebar */
+    position: fixed;
     left: 0;
     top: 0;
-    z-index: 1000; /* ESSENCIAL: Garante que ela esteja acima do conteúdo */
+    z-index: 1000;
     transition: transform 0.3s ease-in-out;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
 }
 
+/*organização da barra lateral*/
 .sidebar {
-    /*organização da barra lateral*/
     color: #ffffff;
     height: 100vh;
     right: 100vh;
@@ -30,28 +30,27 @@
 }
 
 .sidebar {
-    /*centralizando ul*/
     justify-content: center;
 }
 
+/* reposicionar a logo*/
 .sidebar .logo {
-    /* reposicionar a logo*/
     position: absolute;
     top: 20px;
     left: 20px;
     width: 10lvb;
 }
 
+/*corpo da lista*/
 .sidebar ul {
-    /*corpo da lista*/
     list-style: none;
     padding: 0;
     margin: 0;
     text-align: center;
 }
 
+/*itens da lista*/
 .sidebar ul li {
-    /*itens da lista*/
     margin: 10vb 5vb 10vb 5vb;
 }
 
@@ -77,24 +76,22 @@
 
 /* MEDIA QUERY: Estilos para telas com largura máxima de 768px (mobile) */
 @media (max-width: 768px) {
+
+    /* Oculta a sidebar movendo-a completamente para fora da tela */
     .sidebar_color {
-        /* Oculta a sidebar movendo-a completamente para fora da tela */
         transform: translateX(-100%);
-        box-shadow: none; /* Remove a sombra quando oculta */
-        /* OPCIONAL: Você pode definir width: 0; ou display: none; para remover o espaço,
-                     mas transform é melhor para transições. */
-        /* width: 0; */
-        /* min-width: 0; */
+        box-shadow: none;
     }
 
+    /* Move a sidebar de volta para a tela quando a classe 'active' é adicionada pelo JS */
     .sidebar_color.active {
-        /* Move a sidebar de volta para a tela quando a classe 'active' é adicionada pelo JS */
         transform: translateX(0);
-        box-shadow: 2px 0 5px rgba(0,0,0,0.2); /* Adiciona a sombra ao mostrar */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
     }
 
+    /* Oculta a logo em mobile para dar espaço */
     .sidebar .logo {
-        display: none; /* Oculta a logo em mobile para dar espaço */
+        display: none;
     }
 
     .sidebar ul li {

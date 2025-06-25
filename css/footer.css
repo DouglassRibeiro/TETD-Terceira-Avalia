@@ -4,7 +4,7 @@ footer {
     color: white;
     text-align: center;
     font-size: 2vh;
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -15,9 +15,9 @@ footer {
 /* MEDIA QUERY: Estilos para telas menores */
 @media (max-width: 768px) {
     footer {
-        margin-left: 0; /* Remove a margem esquerda em mobile */
-        width: 100%; /* Ocupa 100% da largura em mobile */
-        position: relative; /* Volta a ser relativo ao fluxo do documento */
+        margin-left: 0; 
+        width: 100%; 
+        position: relative;
         position: fixed;
     }
 }
