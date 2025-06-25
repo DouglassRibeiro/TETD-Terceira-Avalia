@@ -9,14 +9,13 @@ footer {
     bottom: 0;
     width: 100%;
     padding: 2vh 0 2vh 0;
-    margin-left: 250px
+    margin-left: 250px;
+    display: ;
 }
 
 /* MEDIA QUERY: Estilos para telas menores */
 @media (max-width: 768px) {
     footer {
-        margin-left: 0; 
-        width: 100%; 
-        position: fixed;
+        display: none;
     }
 }
