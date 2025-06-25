@@ -1,5 +1,6 @@
 #sobre {
     font-size: 2vh;
+    display: flex;
 }
 
 #sobre nav p {

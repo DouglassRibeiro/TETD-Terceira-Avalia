@@ -1,19 +1,132 @@
-#projetos {
-    color: white;
-    height: 100vh;
-    width: 50%;
-}
+/* Terceira Avaliação/css/pages/projetos.css */
 
-#projetos article {
-    padding-top: 50vh;
-}
-
-#projetos article table {
-    width: 100%;
-}
-
-#projetos article table tr th,
-#projetos article table tr td {
-    border: 2px solid white;
+/* Estilos para o Título e Texto Introdutório */
+#projetos h2 {
     text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+
+p {
+    color: white;
+}
+
+.intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    font-size: 1.1rem;
+    color: white;
+    line-height: 1.8;
+}
+
+/* Estilos para o Grid de Projetos */
+.project-grid {
+    display: grid; /* Ativa o CSS Grid */
+    /* Cria colunas flexíveis que se ajustam automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; /* Espaço entre os cards (linhas e colunas) */
+    padding: 20px; /* Padding ao redor da grade */
+    justify-content: center; /* Centraliza os itens se houver espaço extra */
+    align-items: stretch; /* Garante que os cards tenham a mesma altura */
+}
+
+/* Estilos para cada Card de Projeto */
+.project-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Garante que a imagem/vídeo não saia das bordas arredondadas */
+    display: flex;
+    flex-direction: column; /* Conteúdo interno empilhado verticalmente */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito de hover */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Leve levantamento no hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra mais intensa */
+}
+
+.project-thumbnail {
+    width: 100%; /* Imagem/vídeo ocupa a largura total do card */
+    height: 200px; /* Altura fixa para as miniaturas */
+    object-fit: cover; /* Cobre o espaço sem distorcer (corta se necessário) */
+    border-bottom: 1px solid #eee;
+    background-color: #f0f0f0; /* Cor de fundo para placeholders */
+}
+
+.project-card h3 {
+    margin: 20px 15px 10px 15px;
+    color: #444;
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    margin: 0 15px 20px 15px;
+    color: #777;
+    flex-grow: 1; /* Permite que o parágrafo ocupe espaço extra, empurrando botões para baixo */
+}
+
+/* Estilos para os Botões */
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    margin: 0 10px 20px 10px; /* Margem inferior e lateral para botões */
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn.secondary {
+    background-color: #6c757d;
+}
+
+.btn.secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Media Queries para Responsividade (ajustes para telas menores) */
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr; /* Em telas menores, apenas 1 coluna */
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .project-card {
+        margin-bottom: 0; /* Remove margem extra */
+    }
+
+    #projetos h2 {
+        font-size: 2rem;
+    }
+
+    .intro-text {
+        margin-bottom: 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-thumbnail {
+        height: 180px; /* Reduz altura da miniatura em telas muito pequenas */
+    }
+
+    .project-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
 }

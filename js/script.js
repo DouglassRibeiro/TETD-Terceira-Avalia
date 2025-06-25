@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '#sobre': 'pages/sobre.html',
         '#projetos': 'pages/projetos.html',
         '#contato': 'pages/contato.html',
+        '#cadastro': 'pages/cadastro.html',
         '': 'pages/inicio.html' // Para a URL raiz (sem hash), carrega a página de início
     };
 
@@ -120,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-    
+
     // Ao <li> que estiver selecionado sua opacidade sera 1 e .5 ao contrario
     const menuItems = document.querySelectorAll("li");
     menuItems.forEach((item, index) => {
@@ -153,4 +154,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Carrega o conteúdo inicial da página baseado na URL atual (ou 'inicio' se não houver hash)
     loadPage(window.location.hash);
+});
+
+// Mapeamento das seções para os ícones
+const favicons = {
+    inicio: 'image/inicio.svg',
+    sobre: 'image/sobre.svg',
+    projetos: 'image/projetos.svg',
+    contato: 'image/contato.svg'
+};
+
+// Função para trocar o favicon
+function setFavicon(section) {
+    const favicon = document.getElementById('favicon');
+    if (favicons[section]) {
+        favicon.href = favicons[section];
+    }
+}
+
+// Adiciona evento aos links do menu
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.sidebar ul li a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            // Pega o id da seção (ex: #inicio)
+            const section = this.getAttribute('href').replace('#', '');
+            setFavicon(section);
+        });
+    });
 });
